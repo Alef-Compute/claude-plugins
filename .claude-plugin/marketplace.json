@@ -1,0 +1,23 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "alef-plugins",
+  "version": "1.0.0",
+  "description": "Claude Code plugins by Alef Compute",
+  "owner": {
+    "name": "Alef Compute",
+    "email": "support@alefcompute.com"
+  },
+  "plugins": [
+    {
+      "name": "legal-assistant",
+      "description": "Contract review assistant with paralegal persona. Reviews contracts against playbooks, generates redlined Word documents.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Alef Compute",
+        "email": "support@alefcompute.com"
+      },
+      "source": "./plugins/legal-assistant",
+      "category": "productivity"
+    }
+  ]
+}

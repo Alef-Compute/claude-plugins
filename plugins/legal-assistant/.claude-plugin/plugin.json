@@ -1,0 +1,9 @@
+{
+  "name": "legal-assistant",
+  "description": "Contract review assistant with paralegal persona. Reviews contracts against playbooks, generates redlined Word documents.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Alef Compute",
+    "email": "support@alefcompute.com"
+  }
+}
