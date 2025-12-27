@@ -5,12 +5,12 @@
 set -e
 
 # Export CLAUDE_PLUGIN_ROOT so it persists for all bash commands
-echo "export CLAUDE_PLUGIN_ROOT=${CLAUDE_PLUGIN_ROOT}" >> "$CLAUDE_ENV_FILE"
+echo "export CLAUDE_PLUGIN_ROOT=\"${CLAUDE_PLUGIN_ROOT}\"" >> "$CLAUDE_ENV_FILE"
 
 # Create workspace directory using CLAUDE_PROJECT_DIR (set by Claude Code)
 WORKSPACE_DIR="${CLAUDE_PROJECT_DIR}/.claude/workspace"
 mkdir -p "$WORKSPACE_DIR"
-echo "export WORKSPACE_DIR=$WORKSPACE_DIR" >> "$CLAUDE_ENV_FILE"
+echo "export WORKSPACE_DIR=\"$WORKSPACE_DIR\"" >> "$CLAUDE_ENV_FILE"
 
 # Find docx skill in common locations
 DOCX_SKILL=""
@@ -29,7 +29,7 @@ if [ -z "$DOCX_SKILL" ]; then
 fi
 
 # Export docx skill path
-echo "export DOCX_SKILL=$DOCX_SKILL" >> "$CLAUDE_ENV_FILE"
+echo "export DOCX_SKILL=\"$DOCX_SKILL\"" >> "$CLAUDE_ENV_FILE"
 
 # Ensure uv is available
 if ! command -v uv &> /dev/null; then
@@ -52,7 +52,7 @@ fi
 (cd "$DOCX_SKILL" && uv pip install -q defusedxml lxml 2>/dev/null || true)
 
 # Auto-activate venv for all bash commands
-echo "source $DOCX_SKILL/.venv/bin/activate 2>/dev/null || true" >> "$CLAUDE_ENV_FILE"
+echo "source \"$DOCX_SKILL/.venv/bin/activate\" 2>/dev/null || true" >> "$CLAUDE_ENV_FILE"
 
 # Check pandoc
 if ! command -v pandoc &> /dev/null; then
